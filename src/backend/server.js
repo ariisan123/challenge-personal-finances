@@ -7,9 +7,7 @@ app.use(urlencoded({ extended: true }));
 app.use(json());
 app.use('/api', apiRoutes);
 
-const PORT = 4000;
-
-app.listen(PORT || process.env.API_PORT, (err) => {
+app.listen(process.env.API_PORT, (err) => {
   if (err) console.log(err);
-  console.log(`Conectado correctamente en puerto ${PORT}`);
+  console.log(`Conectado correctamente en puerto ${process.env.API_PORT}`);
 });

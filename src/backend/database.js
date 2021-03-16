@@ -19,7 +19,7 @@ User.hasMany(Operation, { as: 'operations', foreignKey: 'userId' });
 Operation.belongsTo(User, { as: 'user' });
 
 dbConnection
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log('DB Conectada');
   })

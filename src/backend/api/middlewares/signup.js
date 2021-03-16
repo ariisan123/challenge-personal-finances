@@ -7,12 +7,12 @@ module.exports = {
       const { email } = req.body;
       const user = await User.findOne({ where: { email } });
       if (user) {
-        res.status(409).json({ msg: 'Email already in use', ok: false });
+        return res.status(409).json({ msg: 'Email already in use', ok: false });
       } else {
-        next();
+        return next();
       }
     } catch (err) {
-      res.status(500).json({ msg: 'server error', ok: false, err });
+      return res.status(500).json({ msg: 'server error', ok: false, err });
     }
   },
   async createUser(req, res) {
@@ -20,9 +20,10 @@ module.exports = {
       const { email, password } = req.body;
       const hashpass = bcrypt.hashSync(password, 10);
       const newUser = await User.create({ email, password: hashpass });
-      if (newUser) res.status(201).json({ msg: 'user created', ok: true });
+      if (newUser)
+        return res.status(201).json({ msg: 'user created', ok: true });
     } catch (err) {
-      res.status(500).json({ msg: 'server error', ok: false, err });
+      return res.status(500).json({ msg: 'server error', ok: false, err });
     }
   }
 };
