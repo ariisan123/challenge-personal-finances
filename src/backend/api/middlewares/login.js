@@ -11,7 +11,7 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ msg: 'user not found', ok: false });
       } else {
-        req.params.user = user;
+        res.locals.user = user;
         return next();
       }
     } catch (err) {
@@ -19,7 +19,7 @@ module.exports = {
     }
   },
   verifyPass(req, res, next) {
-    const { password: hashedPass } = req.params.user;
+    const { password: hashedPass } = res.locals.user;
     const { password } = req.body;
     const passIsEqual = bcrypt.compareSync(password, hashedPass);
     passIsEqual
@@ -27,7 +27,7 @@ module.exports = {
       : res.status(409).json({ msg: 'incorrect password', ok: false });
   },
   getJwt(req, res) {
-    const { id } = req.params.user;
+    const { id } = res.locals.user;
     const token = jwt.sign({ userId: id }, process.env.SECRET_KEY);
     return res.status(200).json({ token });
   }

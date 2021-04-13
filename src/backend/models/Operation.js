@@ -23,9 +23,5 @@ module.exports = (sequelize) =>
       type: DataTypes.ENUM,
       values: ['in', 'out'],
       default: 'in'
-    },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: true
     }
   });

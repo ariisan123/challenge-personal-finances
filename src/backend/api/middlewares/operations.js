@@ -20,6 +20,7 @@ module.exports = {
   async newOperation(req, res) {
     try {
       const { userId } = res.locals;
+
       const newOperation = await Operation.create({ ...req.body, userId });
       return res
         .status(201)
@@ -30,6 +31,7 @@ module.exports = {
   },
   async editOperation(req, res) {
     const { id } = req.params;
+    console.log(id);
     const { userId } = res.locals;
     try {
       const editedOperation = await Operation.update(
@@ -53,7 +55,6 @@ module.exports = {
       const deletedOperation = await Operation.destroy({
         where: { id, userId }
       });
-      console.log(deletedOperation);
       if (deletedOperation) {
         return res.status(200).json({ msg: 'operation deleted', ok: true });
       } else {

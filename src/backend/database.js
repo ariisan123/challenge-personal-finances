@@ -1,7 +1,7 @@
 require('./dotenv');
 const { Sequelize } = require('sequelize');
-const operationModel = require('./models/Operation.js');
-const userModel = require('./models/User.js');
+const operationModel = require('./models/Operation');
+const userModel = require('./models/User');
 
 const dbConnection = new Sequelize({
   host: process.env.DB_HOST,

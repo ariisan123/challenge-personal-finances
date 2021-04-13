@@ -1,2 +1,2 @@
-const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
-module.exports = dotenv;
+const dotenv = require('dotenv');
+module.exports = dotenv.config({ path: __dirname + '/.env' });

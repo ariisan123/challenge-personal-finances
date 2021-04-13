@@ -1,10 +1,12 @@
 const express = require('express');
-const { urlencoded, json } = require('body-parser');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const apiRoutes = require('./api/routes/main');
 const app = express();
 
-app.use(urlencoded({ extended: true }));
-app.use(json());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', apiRoutes);
 
 app.listen(process.env.API_PORT, (err) => {
