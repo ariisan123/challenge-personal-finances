@@ -1,0 +1,124 @@
+@import './colors.scss';
+
+nav {
+  background: $nav-background;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem;
+  position: relative;
+  z-index: 3;
+
+  @media screen and (min-width: 760px) {
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+  }
+}
+.navbar-logo {
+  font-size: 1.4rem;
+  color: $font;
+  z-index: 5;
+  align-self: flex-start;
+}
+
+.menu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 2rem;
+  z-index: 5;
+
+  @media screen and(min-width:760px) {
+    display: none;
+  }
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  flex-direction: column;
+
+  position: absolute;
+  left: 0;
+  background-color: rgba($nav-background, 0.9);
+  width: 100vw;
+  top: 0;
+  transition: all 0.2s ease;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  &.activated {
+    top: 3.5rem;
+    transition: all 0.2s ease;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @media screen and (min-width: 760px) {
+    // position: absolute;
+    width: 100%;
+    height: fit-content;
+    top: 80px;
+    //left: 0;
+    justify-content: flex-start;
+    opacity: 1;
+    pointer-events: all;
+
+    &.activated {
+      top: 80px;
+    }
+  }
+}
+
+.menu-links {
+  width: 100%;
+  text-align: center;
+
+  @media screen and(min-width:760px) {
+    text-align: justify;
+    width: 100%;
+  }
+}
+.nav-links {
+  text-decoration: none;
+  color: $font;
+  padding: 0.6rem 0.8rem;
+  background-color: $nav-background;
+  width: 100%;
+  display: block;
+
+  &:hover {
+    background-color: darken($nav-background, 25);
+    cursor: pointer;
+  }
+}
+.active {
+  background-color: darken($nav-background, 35);
+}
+
+.logout {
+  color: lighten($font, 15);
+  background-color: darken($signup, 15);
+
+  &:hover {
+    background-color: $signup;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+  }
+}
+
+.fa-times {
+  color: $font;
+  font-size: 1.4rem;
+}
+
+.fa-bars {
+  color: $font;
+  font-size: 1.4rem;
+}

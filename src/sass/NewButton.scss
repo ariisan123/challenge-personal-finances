@@ -1,0 +1,18 @@
+@import 'colors.scss';
+.btn-new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: $nav-background;
+  color: $font;
+  outline: none;
+
+  &:hover {
+    background-color: darken($nav-background, 15);
+  }
+}

@@ -1,0 +1,49 @@
+@import './colors.scss';
+
+.homebody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    margin: 2rem;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
+
+.home-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.login {
+  color: lighten($font, 15);
+  background-color: darken($login, 15);
+  margin-bottom: 1.3rem;
+
+  &:hover {
+    transition: 0.1s ease-in;
+    background-color: $login;
+  }
+  &:focus {
+    background-color: $login;
+  }
+}
+
+.signup {
+  color: lighten($font, 15);
+  background-color: darken($signup, 15);
+  margin-bottom: 1.3rem;
+
+  &:hover {
+    background-color: $signup;
+    transition: 0.1s ease-in;
+  }
+
+  &:focus {
+    background-color: $signup;
+  }
+}
