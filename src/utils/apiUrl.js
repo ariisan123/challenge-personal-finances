@@ -17,6 +17,7 @@ export const endpoints = {
 };
 
 export const url = `http://${DB_HOST}:${API_PORT}`;
+console.log(url);
 
 export const setUrl = (endpoint) => {
   return `${url}${endpoint}`;
